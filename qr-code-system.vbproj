@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBC240EB-0F2E-4F69-94BB-27C4C87422D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>qr_code_system.My.MyApplication</StartupObject>
+    <RootNamespace>qr_code_system</RootNamespace>
+    <AssemblyName>qr-code-system</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>qr-code-system.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>qr-code-system.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CategoriesForm.Designer.vb">
+      <DependentUpon>CategoriesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashbordForm.Designer.vb">
+      <DependentUpon>DashbordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DashbordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataFetcher.vb" />
+    <Compile Include="DataTypes.vb" />
+    <Compile Include="historyForm.Designer.vb">
+      <DependentUpon>historyForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="historyForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ProductForm.Designer.vb">
+      <DependentUpon>ProductForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProductForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QRCodeGenerator.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashbordForm.resx">
+      <DependentUpon>DashbordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyForm.resx">
+      <DependentUpon>historyForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductForm.resx">
+      <DependentUpon>ProductForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\close %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\qr-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\qr-code32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\box32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\categories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\monitoring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\direct-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\direct-download24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\block64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\rotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\qr-codebig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\bigwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\main-menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\searchbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\loupe.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

@@ -22,14 +22,16 @@ Partial Class DashbordForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle161 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle162 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle163 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle164 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle165 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle166 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle167 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle168 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.NavPanel = New System.Windows.Forms.Panel()
-        Me.HomeButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.EscButton = New System.Windows.Forms.Button()
         Me.SidePanel = New System.Windows.Forms.Panel()
         Me.HistoryButton = New System.Windows.Forms.Button()
         Me.StatisticsButton = New System.Windows.Forms.Button()
@@ -41,14 +43,12 @@ Partial Class DashbordForm
         Me.MainTabControl = New System.Windows.Forms.TabControl()
         Me.HomeTabPage = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SearchTabPage = New System.Windows.Forms.TabPage()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.BasedOnSearchComboBox = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.searchComboBox = New System.Windows.Forms.ComboBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.searchdgvPanel = New System.Windows.Forms.Panel()
@@ -56,19 +56,50 @@ Partial Class DashbordForm
         Me.searchBTN = New System.Windows.Forms.Button()
         Me.searchTXT = New System.Windows.Forms.TextBox()
         Me.ProductTabPage = New System.Windows.Forms.TabPage()
+        Me.txtExpiryDate = New System.Windows.Forms.TextBox()
+        Me.txtProductionDate = New System.Windows.Forms.TextBox()
+        Me.txtProducPrice = New System.Windows.Forms.TextBox()
+        Me.txtProducName = New System.Windows.Forms.TextBox()
+        Me.cbCategorySelector = New System.Windows.Forms.ComboBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.ProductdgvPanel = New System.Windows.Forms.Panel()
+        Me.ShowAllProducteDGV = New System.Windows.Forms.DataGridView()
         Me.CategorieTabPage = New System.Windows.Forms.TabPage()
         Me.QRcodeTabPage = New System.Windows.Forms.TabPage()
         Me.StatisticsTabPage = New System.Windows.Forms.TabPage()
         Me.HistoryTabPage = New System.Windows.Forms.TabPage()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.deleteProductButton = New System.Windows.Forms.Button()
+        Me.UpdateProducteButton = New System.Windows.Forms.Button()
+        Me.fetchAllProducteButton = New System.Windows.Forms.Button()
+        Me.newProducteButton = New System.Windows.Forms.Button()
+        Me.productTitleLabel = New System.Windows.Forms.Label()
+        Me.HomeButton = New System.Windows.Forms.Button()
+        Me.EscButton = New System.Windows.Forms.Button()
+        Me.pnlbl = New System.Windows.Forms.Label()
+        Me.pplbl = New System.Windows.Forms.Label()
+        Me.pdlbl = New System.Windows.Forms.Label()
+        Me.edlbl = New System.Windows.Forms.Label()
+        Me.clbl = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
         Me.NavPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
         Me.MainTabControl.SuspendLayout()
         Me.HomeTabPage.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SearchTabPage.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.searchdgvPanel.SuspendLayout()
         CType(Me.searchDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ProductTabPage.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.ProductdgvPanel.SuspendLayout()
+        CType(Me.ShowAllProducteDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NavPanel
@@ -83,20 +114,6 @@ Partial Class DashbordForm
         Me.NavPanel.Size = New System.Drawing.Size(1530, 53)
         Me.NavPanel.TabIndex = 0
         '
-        'HomeButton
-        '
-        Me.HomeButton.BackColor = System.Drawing.Color.Transparent
-        Me.HomeButton.Dock = System.Windows.Forms.DockStyle.Left
-        Me.HomeButton.FlatAppearance.BorderSize = 0
-        Me.HomeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.BlueViolet
-        Me.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HomeButton.Image = Global.qr_code_system.My.Resources.Resources.main_menu
-        Me.HomeButton.Location = New System.Drawing.Point(0, 0)
-        Me.HomeButton.Name = "HomeButton"
-        Me.HomeButton.Size = New System.Drawing.Size(55, 53)
-        Me.HomeButton.TabIndex = 2
-        Me.HomeButton.UseVisualStyleBackColor = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -109,20 +126,6 @@ Partial Class DashbordForm
         Me.Label1.Size = New System.Drawing.Size(240, 32)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "QR Code system"
-        '
-        'EscButton
-        '
-        Me.EscButton.BackColor = System.Drawing.Color.Transparent
-        Me.EscButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.EscButton.FlatAppearance.BorderSize = 0
-        Me.EscButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.EscButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EscButton.Image = Global.qr_code_system.My.Resources.Resources.close__1_
-        Me.EscButton.Location = New System.Drawing.Point(1475, 0)
-        Me.EscButton.Name = "EscButton"
-        Me.EscButton.Size = New System.Drawing.Size(55, 53)
-        Me.EscButton.TabIndex = 0
-        Me.EscButton.UseVisualStyleBackColor = False
         '
         'SidePanel
         '
@@ -271,21 +274,10 @@ Partial Class DashbordForm
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Wellcome"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.qr_code_system.My.Resources.Resources.qr_codebig
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1335, 707)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'SearchTabPage
         '
         Me.SearchTabPage.Controls.Add(Me.Label6)
-        Me.SearchTabPage.Controls.Add(Me.ComboBox1)
+        Me.SearchTabPage.Controls.Add(Me.BasedOnSearchComboBox)
         Me.SearchTabPage.Controls.Add(Me.Label5)
         Me.SearchTabPage.Controls.Add(Me.searchComboBox)
         Me.SearchTabPage.Controls.Add(Me.Panel3)
@@ -307,28 +299,28 @@ Partial Class DashbordForm
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(666, 159)
+        Me.Label6.Location = New System.Drawing.Point(579, 157)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(149, 34)
         Me.Label6.TabIndex = 13
         Me.Label6.Text = "based on"
         '
-        'ComboBox1
+        'BasedOnSearchComboBox
         '
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(584, 199)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(313, 42)
-        Me.ComboBox1.TabIndex = 12
+        Me.BasedOnSearchComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BasedOnSearchComboBox.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.BasedOnSearchComboBox.FormattingEnabled = True
+        Me.BasedOnSearchComboBox.Location = New System.Drawing.Point(497, 200)
+        Me.BasedOnSearchComboBox.Name = "BasedOnSearchComboBox"
+        Me.BasedOnSearchComboBox.Size = New System.Drawing.Size(313, 42)
+        Me.BasedOnSearchComboBox.TabIndex = 12
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(260, 158)
+        Me.Label5.Location = New System.Drawing.Point(172, 157)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(165, 34)
         Me.Label5.TabIndex = 11
@@ -340,7 +332,7 @@ Partial Class DashbordForm
         Me.searchComboBox.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
         Me.searchComboBox.FormattingEnabled = True
         Me.searchComboBox.Items.AddRange(New Object() {"Product", "Category", "QrCode"})
-        Me.searchComboBox.Location = New System.Drawing.Point(223, 201)
+        Me.searchComboBox.Location = New System.Drawing.Point(135, 200)
         Me.searchComboBox.Name = "searchComboBox"
         Me.searchComboBox.Size = New System.Drawing.Size(239, 42)
         Me.searchComboBox.TabIndex = 10
@@ -354,23 +346,10 @@ Partial Class DashbordForm
         Me.Panel3.Size = New System.Drawing.Size(1335, 88)
         Me.Panel3.TabIndex = 9
         '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Image = Global.qr_code_system.My.Resources.Resources.search
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label3.Location = New System.Drawing.Point(538, -3)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(258, 87)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Search"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Location = New System.Drawing.Point(999, 231)
+        Me.Panel2.Location = New System.Drawing.Point(999, 234)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(257, 3)
@@ -381,7 +360,7 @@ Partial Class DashbordForm
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(1035, 160)
+        Me.Label4.Location = New System.Drawing.Point(1035, 157)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(184, 34)
         Me.Label4.TabIndex = 7
@@ -400,13 +379,13 @@ Partial Class DashbordForm
         '
         Me.searchDataGridView.AllowUserToResizeColumns = False
         Me.searchDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        Me.searchDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle161.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle161.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle161.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
+        DataGridViewCellStyle161.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle161.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle161.SelectionForeColor = System.Drawing.Color.White
+        Me.searchDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle161
         Me.searchDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -415,36 +394,36 @@ Partial Class DashbordForm
         Me.searchDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.searchDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.searchDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.searchDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle162.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle162.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle162.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle162.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle162.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle162.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle162.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.searchDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle162
         Me.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.searchDataGridView.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.searchDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle163.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle163.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle163.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle163.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle163.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle163.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle163.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.searchDataGridView.DefaultCellStyle = DataGridViewCellStyle163
         Me.searchDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.searchDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.searchDataGridView.Name = "searchDataGridView"
         Me.searchDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.0!)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.searchDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle164.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle164.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle164.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle164.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle164.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle164.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle164.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.searchDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle164
         Me.searchDataGridView.RowHeadersWidth = 25
         Me.searchDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.searchDataGridView.RowTemplate.Height = 26
@@ -471,14 +450,37 @@ Partial Class DashbordForm
         '
         Me.searchTXT.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.searchTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.searchTXT.Location = New System.Drawing.Point(999, 207)
+        Me.searchTXT.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.searchTXT.Location = New System.Drawing.Point(999, 204)
         Me.searchTXT.Margin = New System.Windows.Forms.Padding(0)
         Me.searchTXT.Name = "searchTXT"
-        Me.searchTXT.Size = New System.Drawing.Size(257, 31)
+        Me.searchTXT.Size = New System.Drawing.Size(257, 35)
         Me.searchTXT.TabIndex = 3
+        Me.searchTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ProductTabPage
         '
+        Me.ProductTabPage.Controls.Add(Me.Panel9)
+        Me.ProductTabPage.Controls.Add(Me.Panel8)
+        Me.ProductTabPage.Controls.Add(Me.Panel7)
+        Me.ProductTabPage.Controls.Add(Me.Panel6)
+        Me.ProductTabPage.Controls.Add(Me.Panel5)
+        Me.ProductTabPage.Controls.Add(Me.clbl)
+        Me.ProductTabPage.Controls.Add(Me.edlbl)
+        Me.ProductTabPage.Controls.Add(Me.pdlbl)
+        Me.ProductTabPage.Controls.Add(Me.pplbl)
+        Me.ProductTabPage.Controls.Add(Me.pnlbl)
+        Me.ProductTabPage.Controls.Add(Me.txtExpiryDate)
+        Me.ProductTabPage.Controls.Add(Me.txtProductionDate)
+        Me.ProductTabPage.Controls.Add(Me.txtProducPrice)
+        Me.ProductTabPage.Controls.Add(Me.txtProducName)
+        Me.ProductTabPage.Controls.Add(Me.deleteProductButton)
+        Me.ProductTabPage.Controls.Add(Me.UpdateProducteButton)
+        Me.ProductTabPage.Controls.Add(Me.fetchAllProducteButton)
+        Me.ProductTabPage.Controls.Add(Me.newProducteButton)
+        Me.ProductTabPage.Controls.Add(Me.cbCategorySelector)
+        Me.ProductTabPage.Controls.Add(Me.Panel4)
+        Me.ProductTabPage.Controls.Add(Me.ProductdgvPanel)
         Me.ProductTabPage.Location = New System.Drawing.Point(4, 40)
         Me.ProductTabPage.Name = "ProductTabPage"
         Me.ProductTabPage.Padding = New System.Windows.Forms.Padding(3)
@@ -486,6 +488,123 @@ Partial Class DashbordForm
         Me.ProductTabPage.TabIndex = 2
         Me.ProductTabPage.Text = "Product"
         Me.ProductTabPage.UseVisualStyleBackColor = True
+        '
+        'txtExpiryDate
+        '
+        Me.txtExpiryDate.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtExpiryDate.Location = New System.Drawing.Point(1045, 275)
+        Me.txtExpiryDate.Name = "txtExpiryDate"
+        Me.txtExpiryDate.Size = New System.Drawing.Size(274, 31)
+        Me.txtExpiryDate.TabIndex = 19
+        '
+        'txtProductionDate
+        '
+        Me.txtProductionDate.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProductionDate.Location = New System.Drawing.Point(1045, 224)
+        Me.txtProductionDate.Name = "txtProductionDate"
+        Me.txtProductionDate.Size = New System.Drawing.Size(274, 31)
+        Me.txtProductionDate.TabIndex = 18
+        '
+        'txtProducPrice
+        '
+        Me.txtProducPrice.BackColor = System.Drawing.SystemColors.Window
+        Me.txtProducPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProducPrice.Location = New System.Drawing.Point(1045, 173)
+        Me.txtProducPrice.Name = "txtProducPrice"
+        Me.txtProducPrice.Size = New System.Drawing.Size(274, 31)
+        Me.txtProducPrice.TabIndex = 17
+        '
+        'txtProducName
+        '
+        Me.txtProducName.BackColor = System.Drawing.SystemColors.Window
+        Me.txtProducName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProducName.Location = New System.Drawing.Point(1045, 122)
+        Me.txtProducName.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtProducName.Name = "txtProducName"
+        Me.txtProducName.Size = New System.Drawing.Size(274, 31)
+        Me.txtProducName.TabIndex = 16
+        '
+        'cbCategorySelector
+        '
+        Me.cbCategorySelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cbCategorySelector.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.cbCategorySelector.FormattingEnabled = True
+        Me.cbCategorySelector.Location = New System.Drawing.Point(1045, 324)
+        Me.cbCategorySelector.Name = "cbCategorySelector"
+        Me.cbCategorySelector.Size = New System.Drawing.Size(274, 42)
+        Me.cbCategorySelector.TabIndex = 11
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.productTitleLabel)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(3, 3)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1335, 88)
+        Me.Panel4.TabIndex = 10
+        '
+        'ProductdgvPanel
+        '
+        Me.ProductdgvPanel.BackColor = System.Drawing.Color.Transparent
+        Me.ProductdgvPanel.Controls.Add(Me.ShowAllProducteDGV)
+        Me.ProductdgvPanel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ProductdgvPanel.Location = New System.Drawing.Point(3, 440)
+        Me.ProductdgvPanel.Name = "ProductdgvPanel"
+        Me.ProductdgvPanel.Size = New System.Drawing.Size(1335, 270)
+        Me.ProductdgvPanel.TabIndex = 6
+        '
+        'ShowAllProducteDGV
+        '
+        Me.ShowAllProducteDGV.AllowUserToResizeColumns = False
+        Me.ShowAllProducteDGV.AllowUserToResizeRows = False
+        DataGridViewCellStyle165.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle165.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle165.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
+        DataGridViewCellStyle165.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle165.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle165.SelectionForeColor = System.Drawing.Color.White
+        Me.ShowAllProducteDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle165
+        Me.ShowAllProducteDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.ShowAllProducteDGV.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.ShowAllProducteDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ShowAllProducteDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.ShowAllProducteDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle166.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle166.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle166.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle166.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle166.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle166.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle166.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ShowAllProducteDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle166
+        Me.ShowAllProducteDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ShowAllProducteDGV.Cursor = System.Windows.Forms.Cursors.Hand
+        DataGridViewCellStyle167.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle167.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle167.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle167.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle167.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle167.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle167.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ShowAllProducteDGV.DefaultCellStyle = DataGridViewCellStyle167
+        Me.ShowAllProducteDGV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ShowAllProducteDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowAllProducteDGV.Location = New System.Drawing.Point(0, 0)
+        Me.ShowAllProducteDGV.Name = "ShowAllProducteDGV"
+        Me.ShowAllProducteDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle168.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle168.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle168.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle168.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle168.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle168.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle168.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ShowAllProducteDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle168
+        Me.ShowAllProducteDGV.RowHeadersWidth = 25
+        Me.ShowAllProducteDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.ShowAllProducteDGV.RowTemplate.Height = 26
+        Me.ShowAllProducteDGV.Size = New System.Drawing.Size(1335, 270)
+        Me.ShowAllProducteDGV.TabIndex = 5
         '
         'CategorieTabPage
         '
@@ -527,6 +646,245 @@ Partial Class DashbordForm
         Me.HistoryTabPage.Text = "History"
         Me.HistoryTabPage.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.qr_code_system.My.Resources.Resources.qr_codebig
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1335, 707)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label3.Image = Global.qr_code_system.My.Resources.Resources.search
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.Location = New System.Drawing.Point(538, -3)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(258, 87)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Search"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'deleteProductButton
+        '
+        Me.deleteProductButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.deleteProductButton.FlatAppearance.BorderSize = 0
+        Me.deleteProductButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.deleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.deleteProductButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!)
+        Me.deleteProductButton.ForeColor = System.Drawing.Color.White
+        Me.deleteProductButton.Image = Global.qr_code_system.My.Resources.Resources.delete
+        Me.deleteProductButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.deleteProductButton.Location = New System.Drawing.Point(202, 248)
+        Me.deleteProductButton.Name = "deleteProductButton"
+        Me.deleteProductButton.Size = New System.Drawing.Size(151, 120)
+        Me.deleteProductButton.TabIndex = 15
+        Me.deleteProductButton.Text = "Delete"
+        Me.deleteProductButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.deleteProductButton.UseVisualStyleBackColor = False
+        '
+        'UpdateProducteButton
+        '
+        Me.UpdateProducteButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.UpdateProducteButton.FlatAppearance.BorderSize = 0
+        Me.UpdateProducteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.UpdateProducteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UpdateProducteButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!)
+        Me.UpdateProducteButton.ForeColor = System.Drawing.Color.White
+        Me.UpdateProducteButton.Image = Global.qr_code_system.My.Resources.Resources.recycling
+        Me.UpdateProducteButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.UpdateProducteButton.Location = New System.Drawing.Point(45, 248)
+        Me.UpdateProducteButton.Name = "UpdateProducteButton"
+        Me.UpdateProducteButton.Size = New System.Drawing.Size(151, 120)
+        Me.UpdateProducteButton.TabIndex = 14
+        Me.UpdateProducteButton.Text = "Update"
+        Me.UpdateProducteButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.UpdateProducteButton.UseVisualStyleBackColor = False
+        '
+        'fetchAllProducteButton
+        '
+        Me.fetchAllProducteButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.fetchAllProducteButton.FlatAppearance.BorderSize = 0
+        Me.fetchAllProducteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.fetchAllProducteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.fetchAllProducteButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!)
+        Me.fetchAllProducteButton.ForeColor = System.Drawing.Color.White
+        Me.fetchAllProducteButton.Image = Global.qr_code_system.My.Resources.Resources.download
+        Me.fetchAllProducteButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.fetchAllProducteButton.Location = New System.Drawing.Point(45, 122)
+        Me.fetchAllProducteButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.fetchAllProducteButton.Name = "fetchAllProducteButton"
+        Me.fetchAllProducteButton.Size = New System.Drawing.Size(151, 120)
+        Me.fetchAllProducteButton.TabIndex = 13
+        Me.fetchAllProducteButton.Text = "Show All"
+        Me.fetchAllProducteButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.fetchAllProducteButton.UseVisualStyleBackColor = False
+        '
+        'newProducteButton
+        '
+        Me.newProducteButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.newProducteButton.FlatAppearance.BorderSize = 0
+        Me.newProducteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.newProducteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.newProducteButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!)
+        Me.newProducteButton.ForeColor = System.Drawing.Color.White
+        Me.newProducteButton.Image = Global.qr_code_system.My.Resources.Resources.new_product
+        Me.newProducteButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.newProducteButton.Location = New System.Drawing.Point(202, 122)
+        Me.newProducteButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.newProducteButton.Name = "newProducteButton"
+        Me.newProducteButton.Size = New System.Drawing.Size(151, 120)
+        Me.newProducteButton.TabIndex = 12
+        Me.newProducteButton.Text = "Add"
+        Me.newProducteButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.newProducteButton.UseVisualStyleBackColor = False
+        '
+        'productTitleLabel
+        '
+        Me.productTitleLabel.Font = New System.Drawing.Font("Arial Rounded MT Bold", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.productTitleLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.productTitleLabel.Image = Global.qr_code_system.My.Resources.Resources.product
+        Me.productTitleLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.productTitleLabel.Location = New System.Drawing.Point(485, -3)
+        Me.productTitleLabel.Name = "productTitleLabel"
+        Me.productTitleLabel.Size = New System.Drawing.Size(306, 87)
+        Me.productTitleLabel.TabIndex = 0
+        Me.productTitleLabel.Text = "Products"
+        Me.productTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'HomeButton
+        '
+        Me.HomeButton.BackColor = System.Drawing.Color.Transparent
+        Me.HomeButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.HomeButton.FlatAppearance.BorderSize = 0
+        Me.HomeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.BlueViolet
+        Me.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HomeButton.Image = Global.qr_code_system.My.Resources.Resources.main_menu
+        Me.HomeButton.Location = New System.Drawing.Point(0, 0)
+        Me.HomeButton.Name = "HomeButton"
+        Me.HomeButton.Size = New System.Drawing.Size(55, 53)
+        Me.HomeButton.TabIndex = 2
+        Me.HomeButton.UseVisualStyleBackColor = False
+        '
+        'EscButton
+        '
+        Me.EscButton.BackColor = System.Drawing.Color.Transparent
+        Me.EscButton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.EscButton.FlatAppearance.BorderSize = 0
+        Me.EscButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.EscButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EscButton.Image = Global.qr_code_system.My.Resources.Resources.close__1_
+        Me.EscButton.Location = New System.Drawing.Point(1475, 0)
+        Me.EscButton.Name = "EscButton"
+        Me.EscButton.Size = New System.Drawing.Size(55, 53)
+        Me.EscButton.TabIndex = 0
+        Me.EscButton.UseVisualStyleBackColor = False
+        '
+        'pnlbl
+        '
+        Me.pnlbl.AutoSize = True
+        Me.pnlbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnlbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(12, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlbl.Location = New System.Drawing.Point(793, 123)
+        Me.pnlbl.Name = "pnlbl"
+        Me.pnlbl.Size = New System.Drawing.Size(226, 34)
+        Me.pnlbl.TabIndex = 20
+        Me.pnlbl.Text = "Product Name"
+        '
+        'pplbl
+        '
+        Me.pplbl.AutoSize = True
+        Me.pplbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pplbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(12, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pplbl.Location = New System.Drawing.Point(798, 174)
+        Me.pplbl.Name = "pplbl"
+        Me.pplbl.Size = New System.Drawing.Size(217, 34)
+        Me.pplbl.TabIndex = 21
+        Me.pplbl.Text = "Product Price"
+        '
+        'pdlbl
+        '
+        Me.pdlbl.AutoSize = True
+        Me.pdlbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pdlbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(12, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pdlbl.Location = New System.Drawing.Point(780, 225)
+        Me.pdlbl.Name = "pdlbl"
+        Me.pdlbl.Size = New System.Drawing.Size(253, 34)
+        Me.pdlbl.TabIndex = 22
+        Me.pdlbl.Text = "Production Date"
+        '
+        'edlbl
+        '
+        Me.edlbl.AutoSize = True
+        Me.edlbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.edlbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(12, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.edlbl.Location = New System.Drawing.Point(814, 276)
+        Me.edlbl.Name = "edlbl"
+        Me.edlbl.Size = New System.Drawing.Size(184, 34)
+        Me.edlbl.TabIndex = 23
+        Me.edlbl.Text = "Expiry Date"
+        '
+        'clbl
+        '
+        Me.clbl.AutoSize = True
+        Me.clbl.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clbl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(12, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.clbl.Location = New System.Drawing.Point(831, 327)
+        Me.clbl.Name = "clbl"
+        Me.clbl.Size = New System.Drawing.Size(150, 34)
+        Me.clbl.TabIndex = 24
+        Me.clbl.Text = "Category"
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel5.Location = New System.Drawing.Point(1045, 148)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(274, 3)
+        Me.Panel5.TabIndex = 25
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel6.Location = New System.Drawing.Point(1045, 199)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(274, 3)
+        Me.Panel6.TabIndex = 26
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel7.Location = New System.Drawing.Point(1045, 250)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(274, 3)
+        Me.Panel7.TabIndex = 27
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel8.Location = New System.Drawing.Point(1045, 301)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(274, 3)
+        Me.Panel8.TabIndex = 28
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel9.Location = New System.Drawing.Point(1045, 361)
+        Me.Panel9.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(274, 3)
+        Me.Panel9.TabIndex = 29
+        '
         'DashbordForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 31.0!)
@@ -547,12 +905,17 @@ Partial Class DashbordForm
         Me.MainTabControl.ResumeLayout(False)
         Me.HomeTabPage.ResumeLayout(False)
         Me.HomeTabPage.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SearchTabPage.ResumeLayout(False)
         Me.SearchTabPage.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.searchdgvPanel.ResumeLayout(False)
         CType(Me.searchDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProductTabPage.ResumeLayout(False)
+        Me.ProductTabPage.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.ProductdgvPanel.ResumeLayout(False)
+        CType(Me.ShowAllProducteDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -589,6 +952,29 @@ Partial Class DashbordForm
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents searchComboBox As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents BasedOnSearchComboBox As ComboBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents ShowAllProducteDGV As DataGridView
+    Friend WithEvents ProductdgvPanel As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents productTitleLabel As Label
+    Friend WithEvents cbCategorySelector As ComboBox
+    Friend WithEvents deleteProductButton As Button
+    Friend WithEvents UpdateProducteButton As Button
+    Friend WithEvents fetchAllProducteButton As Button
+    Friend WithEvents newProducteButton As Button
+    Friend WithEvents txtExpiryDate As TextBox
+    Friend WithEvents txtProductionDate As TextBox
+    Friend WithEvents txtProducPrice As TextBox
+    Friend WithEvents txtProducName As TextBox
+    Friend WithEvents clbl As Label
+    Friend WithEvents edlbl As Label
+    Friend WithEvents pdlbl As Label
+    Friend WithEvents pplbl As Label
+    Friend WithEvents pnlbl As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Panel9 As Panel
 End Class

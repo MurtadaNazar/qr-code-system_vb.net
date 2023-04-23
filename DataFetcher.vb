@@ -168,4 +168,46 @@ Module DataFetcher
 
 
 
+
+
+
+
+
+
+
+
+    Function GetAutocompleteResults(columnName As String, searchTerm As String, tableName As String) As List(Of String)
+        Dim results As New List(Of String)
+        connection.Open()
+        Dim sqlCommand As New SqlCommand("AutoComplete", connection)
+        sqlCommand.CommandType = CommandType.StoredProcedure
+        sqlCommand.Parameters.Add("@ColumnName", SqlDbType.NVarChar, 50).Value = columnName
+        sqlCommand.Parameters.Add("@SearchTerm", SqlDbType.NVarChar, 50).Value = searchTerm
+        sqlCommand.Parameters.Add("@TableName", SqlDbType.VarChar, 50).Value = tableName
+        Dim reader As SqlDataReader = sqlCommand.ExecuteReader()
+        While reader.Read()
+            ' Add each result to the autocomplete list
+            Dim result As String = reader.GetString(0)
+            results.Add(result)
+        End While
+        reader.Close()
+        connection.Close()
+        Return results
+    End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 End Module

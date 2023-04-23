@@ -47,6 +47,8 @@
             Case 3
                 PopulateComboBox("QrCode", ComboBox1)
         End Select
+
+
     End Sub
 
     Private Sub searchBTN_Click(sender As Object, e As EventArgs) Handles searchBTN.Click
@@ -77,7 +79,13 @@
         searchDataGridView.DataSource = dataTable
     End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim autocompleteList As List(Of String) = GetAutocompleteResults("product_name", searchTXT.Text, "Product")
 
-
+        ' Bind the autocomplete list to the text box
+        searchTXT.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        searchTXT.AutoCompleteSource = AutoCompleteSource.CustomSource
+        searchTXT.AutoCompleteCustomSource.AddRange(autocompleteList.ToArray())
+    End Sub
 
 End Class

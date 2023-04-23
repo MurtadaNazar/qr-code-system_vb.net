@@ -22,6 +22,10 @@ Partial Class DashbordForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.NavPanel = New System.Windows.Forms.Panel()
         Me.HomeButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,32 +43,32 @@ Partial Class DashbordForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SearchTabPage = New System.Windows.Forms.TabPage()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.searchComboBox = New System.Windows.Forms.ComboBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.searchdgvPanel = New System.Windows.Forms.Panel()
         Me.searchDataGridView = New System.Windows.Forms.DataGridView()
         Me.searchBTN = New System.Windows.Forms.Button()
         Me.searchTXT = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.ProductTabPage = New System.Windows.Forms.TabPage()
         Me.CategorieTabPage = New System.Windows.Forms.TabPage()
         Me.QRcodeTabPage = New System.Windows.Forms.TabPage()
         Me.StatisticsTabPage = New System.Windows.Forms.TabPage()
         Me.HistoryTabPage = New System.Windows.Forms.TabPage()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.searchComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.NavPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
         Me.MainTabControl.SuspendLayout()
         Me.HomeTabPage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SearchTabPage.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.searchdgvPanel.SuspendLayout()
         CType(Me.searchDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'NavPanel
@@ -298,11 +302,86 @@ Partial Class DashbordForm
         Me.SearchTabPage.Text = "Search"
         Me.SearchTabPage.UseVisualStyleBackColor = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(666, 159)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(149, 34)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "based on"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(584, 199)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(313, 42)
+        Me.ComboBox1.TabIndex = 12
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(260, 158)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(165, 34)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "search for"
+        '
+        'searchComboBox
+        '
+        Me.searchComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.searchComboBox.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        Me.searchComboBox.FormattingEnabled = True
+        Me.searchComboBox.Items.AddRange(New Object() {"Product", "Category", "QrCode"})
+        Me.searchComboBox.Location = New System.Drawing.Point(223, 201)
+        Me.searchComboBox.Name = "searchComboBox"
+        Me.searchComboBox.Size = New System.Drawing.Size(239, 42)
+        Me.searchComboBox.TabIndex = 10
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1335, 88)
+        Me.Panel3.TabIndex = 9
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label3.Image = Global.qr_code_system.My.Resources.Resources.search
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.Location = New System.Drawing.Point(538, -3)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(258, 87)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Search"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Location = New System.Drawing.Point(999, 231)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(257, 3)
+        Me.Panel2.TabIndex = 8
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(762, 159)
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(1035, 160)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(184, 34)
         Me.Label4.TabIndex = 7
@@ -319,11 +398,55 @@ Partial Class DashbordForm
         '
         'searchDataGridView
         '
+        Me.searchDataGridView.AllowUserToResizeColumns = False
+        Me.searchDataGridView.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        Me.searchDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.searchDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.searchDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.searchDataGridView.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.searchDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.searchDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.searchDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.searchDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.searchDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.searchDataGridView.Cursor = System.Windows.Forms.Cursors.Hand
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.0!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.searchDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.searchDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.searchDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.searchDataGridView.Name = "searchDataGridView"
-        Me.searchDataGridView.RowHeadersWidth = 51
+        Me.searchDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.0!)
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.searchDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.searchDataGridView.RowHeadersWidth = 25
+        Me.searchDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.searchDataGridView.RowTemplate.Height = 26
         Me.searchDataGridView.Size = New System.Drawing.Size(1335, 284)
         Me.searchDataGridView.TabIndex = 4
@@ -348,24 +471,11 @@ Partial Class DashbordForm
         '
         Me.searchTXT.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.searchTXT.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.searchTXT.Location = New System.Drawing.Point(726, 205)
+        Me.searchTXT.Location = New System.Drawing.Point(999, 207)
         Me.searchTXT.Margin = New System.Windows.Forms.Padding(0)
         Me.searchTXT.Name = "searchTXT"
         Me.searchTXT.Size = New System.Drawing.Size(257, 31)
         Me.searchTXT.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label3.Image = Global.qr_code_system.My.Resources.Resources.search
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label3.Location = New System.Drawing.Point(538, -3)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(258, 87)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Search"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ProductTabPage
         '
@@ -417,60 +527,6 @@ Partial Class DashbordForm
         Me.HistoryTabPage.Text = "History"
         Me.HistoryTabPage.UseVisualStyleBackColor = True
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Location = New System.Drawing.Point(726, 229)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(257, 3)
-        Me.Panel2.TabIndex = 8
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(3, 3)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1335, 88)
-        Me.Panel3.TabIndex = 9
-        '
-        'searchComboBox
-        '
-        Me.searchComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.searchComboBox.FormattingEnabled = True
-        Me.searchComboBox.Items.AddRange(New Object() {"Product", "Category", "QrCode"})
-        Me.searchComboBox.Location = New System.Drawing.Point(214, 199)
-        Me.searchComboBox.Name = "searchComboBox"
-        Me.searchComboBox.Size = New System.Drawing.Size(206, 39)
-        Me.searchComboBox.TabIndex = 10
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(252, 165)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(120, 31)
-        Me.Label5.TabIndex = 11
-        Me.Label5.Text = "search for"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(460, 196)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(240, 39)
-        Me.ComboBox1.TabIndex = 12
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(513, 159)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(110, 31)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "based on"
-        '
         'DashbordForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 31.0!)
@@ -494,9 +550,9 @@ Partial Class DashbordForm
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SearchTabPage.ResumeLayout(False)
         Me.SearchTabPage.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.searchdgvPanel.ResumeLayout(False)
         CType(Me.searchDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

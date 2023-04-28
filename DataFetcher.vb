@@ -1,9 +1,13 @@
 ﻿Imports System.Data.SqlClient
+
+
 Module DataFetcher
+    '!: connect to the data base
     Dim connectionString As String = "Data Source=MURTADANAZAR\MURTADANAZAR;Initial Catalog=db_qr_code_system;Integrated Security=True"
     Dim connection As New SqlConnection(connectionString)
 
-    'todo:-------------------------producet stored start ----------------------------'
+    'todo:==================producet stored start================================='
+#Region "producet stored start"
     Public Sub InsertProduct(pp As Product, dgv As DataGridView)
         connection.Open()
         Dim command As New SqlCommand("InsertProduct", connection)
@@ -59,7 +63,6 @@ Module DataFetcher
         connection.Close()
     End Sub
 
-
     Public Sub deleteProduct(productID)
         connection.Open()
         Dim command As New SqlCommand("DeleteProduct", connection)
@@ -80,8 +83,11 @@ Module DataFetcher
         combo.DisplayMember = "category_name"
         connection.Close()
     End Sub
-    'todo:-------------------------producet stored end ----------------------------'
-    'todo:-------------------------category stored start---------------------------'
+    'todo:==================producet stored end================================='
+#End Region
+
+    'todo:==================category stored start================================='
+#Region "category stored"
     Public Sub InsertCategory(CategoryName As Category)
         connection.Open()
         Dim command As New SqlCommand("InsertCategory", connection)
@@ -122,8 +128,11 @@ Module DataFetcher
         command.ExecuteNonQuery()
         connection.Close()
     End Sub
+    'todo:==================category stored end================================='
+#End Region
 
-    'TODO: search data 
+    'todo:==================serach stored start================================='
+#Region "serach stored"
     Public Function SearchData(search_Filter As search_Filter) As DataTable
         Dim dataTable As New DataTable()
         Try
@@ -164,18 +173,6 @@ Module DataFetcher
         comboBox.DataSource = columnNames
     End Sub
 
-
-
-
-
-
-
-
-
-
-
-
-
     Function GetAutocompleteResults(columnName As String, searchTerm As String, tableName As String) As List(Of String)
         Dim results As New List(Of String)
         connection.Open()
@@ -186,7 +183,6 @@ Module DataFetcher
         sqlCommand.Parameters.Add("@TableName", SqlDbType.VarChar, 50).Value = tableName
         Dim reader As SqlDataReader = sqlCommand.ExecuteReader()
         While reader.Read()
-            ' Add each result to the autocomplete list
             Dim result As String = reader.GetString(0)
             results.Add(result)
         End While
@@ -195,19 +191,123 @@ Module DataFetcher
         Return results
     End Function
 
+    'todo:==================serach stored end================================='
+#End Region
+
+    'todo:==================qr code stored start================================='
+#Region "QR Code"
+    Public Sub LoadQrCodes(dgv As DataGridView)
+        dgv.Rows.Clear()
+        Dim query As String = "GetAllQrCodes"
+        Using command As New SqlCommand(query, connection)
+            command.CommandType = CommandType.StoredProcedure
+            connection.Open()
+            Dim reader As SqlDataReader = command.ExecuteReader()
+            While reader.Read()
+                Dim qrCodeId As Integer = reader.GetInt32(0)
+                Dim qrCodeValue As Byte() = DirectCast(reader.GetValue(1), Byte())
+                Dim createdAt As DateTime = reader.GetSqlDateTime(2)
+                Dim productId As Integer = reader.GetInt32(3)
+                Dim qrCodeName As String = reader.GetString(4)
+                dgv.Rows.Add(qrCodeId, productId, createdAt, qrCodeValue, qrCodeName)
+                dgv.Rows(dgv.Rows.Count - 1).Cells("qrCodeValue").Tag = qrCodeValue
+            End While
+            connection.Close()
+        End Using
+    End Sub
 
 
+    Public Sub QRCodecomboBoxItem(combo As ComboBox)
+        connection.Open()
+        Dim command As New SqlCommand("SelectAllProducts", connection)
+        command.CommandType = CommandType.StoredProcedure
+        Dim DataAdapter As New SqlDataAdapter(command)
+        Dim table As DataTable = New DataTable()
+        DataAdapter.Fill(table)
+        combo.DataSource = table
+        combo.ValueMember = "product_id"
+        combo.DisplayMember = "product_name"
+        connection.Close()
+    End Sub
 
 
+    Public Sub qrcodeinsert(product As Product, productid As Integer, qrCodename As String)
+        ' Generate the QR code and save it to the QrCode table
+        Dim qrCode As Bitmap = GenerateQRCode(product, productid)
+        Dim qrCodeBytes As Byte() = ImageToByteArray(qrCode)
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+            Using command As New SqlCommand("CreateQrCodeRecord", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@qr_code_value", qrCodeBytes)
+                command.Parameters.AddWithValue("@product_id", productid)
+                command.Parameters.AddWithValue("@qr_code_name", qrCodename)
+                command.ExecuteNonQuery()
+            End Using
+            connection.Close()
+        End Using
+    End Sub
+
+    Public Function DeleteQRCodeRecord(qrCodeId As Integer) As Boolean
+        Dim success As Boolean = False
+        Using connection
+            connection.Open()
+            Using command As New SqlCommand("DeleteQRCode", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@qrCodeId", qrCodeId)
+                If command.ExecuteNonQuery() > 0 Then
+                    success = True
+                End If
+            End Using
+            connection.Close()
+        End Using
+        Return success
+    End Function
 
 
+    Public Sub getprodinfo(combo As ComboBox, tx1 As TextBox, tx2 As TextBox, tx3 As TextBox, tx4 As TextBox, tx5 As TextBox)
+        ' Get the selected product ID
+        Dim selectedProduct As Object = combo.DisplayMember
+        Dim productId As Integer = CInt(combo.SelectedValue)
 
+        ' Query the database for the remaining data
+        Dim command As New SqlCommand("SELECT * FROM Product WHERE product_id = @productId", connection)
+        command.Parameters.AddWithValue("@productId", productId)
+        connection.Open()
+        Dim reader As SqlDataReader = command.ExecuteReader()
 
+        ' Populate the text boxes with the data
+        If reader.Read() Then
+            tx1.Text = reader.GetString(1)
+            tx2.Text = reader.GetDecimal(2).ToString()
+            tx3.Text = reader.GetDateTime(3).ToString("yyyy-MM-dd")
+            tx4.Text = reader.GetDateTime(4).ToString("yyyy-MM-dd")
+            tx5.Text = reader.GetInt32(5)
+        End If
 
+        ' Clean up
+        reader.Close()
+        connection.Close()
+    End Sub
 
+    Public Function InsertPrintedQRCodeRecord(qrCodeI As Integer, quantity As Integer) As Boolean
+        Dim dateOfPrinting As Date = Date.Now
+        Dim quantityPrinted As Integer = quantity 'set this to the number of copies printed
+        Dim success As Boolean = False
+        connection.Open()
+        Using command As New SqlCommand("INSERT INTO PrintedQRCodes (QRCodeID, DateOfPrinting, QuantityPrinted) VALUES (@qrCodeId, @dateOfPrinting, @quantityPrinted)", connection)
+            command.Parameters.AddWithValue("@qrCodeId", qrCodeI)
+            command.Parameters.AddWithValue("@dateOfPrinting", dateOfPrinting)
+            command.Parameters.AddWithValue("@quantityPrinted", quantityPrinted)
+            If command.ExecuteNonQuery() > 0 Then 'check if a row was affected
+                success = True
+            End If
+        End Using
+        connection.Close()
+        Return success
+    End Function
 
-
-
-
+    'todo:==================serach stored end================================='
+#End Region
 
 End Module

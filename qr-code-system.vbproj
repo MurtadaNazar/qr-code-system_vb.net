@@ -83,12 +83,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriesForm.Designer.vb">
-      <DependentUpon>CategoriesForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CategoriesForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DashbordForm.Designer.vb">
       <DependentUpon>DashbordForm.vb</DependentUpon>
     </Compile>
@@ -119,12 +113,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="QRCodeGenerator.vb" />
+    <Compile Include="QRCodeGeneratorModule.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CategoriesForm.resx">
-      <DependentUpon>CategoriesForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DashbordForm.resx">
       <DependentUpon>DashbordForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +229,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\add-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\printer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,4 +1,11 @@
-﻿Public Class DashbordForm
+﻿Imports System.Data.SqlClient
+Imports System.Drawing.Printing
+Imports System.IO
+Imports qr_code_system.DataTypes
+Imports ZXing
+Imports ZXing.QrCode
+
+Public Class DashbordForm
     'TODO:===========================DashBordForm========================================
 #Region "DashBord"
     Private Sub EscButton_Click(sender As Object, e As EventArgs) Handles EscButton.Click
@@ -14,7 +21,7 @@
         End Try
     End Sub
     '!: Navgition throm the tabs
-    Private Sub HomeButton_Click(sender As Object, e As EventArgs) Handles HomeButton.Click, SearchButton.Click, ProductButton.Click, CategoriesButton.Click, QRcodeButton.Click, StatisticsButton.Click, HistoryButton.Click
+    Private Sub HomeButton_Click(sender As Object, e As EventArgs) Handles HomeButton.Click, SearchButton.Click, ProductButton.Click, CategoriesButton.Click, QRcodeButton.Click, DiscountsButton.Click, StatisticsButton.Click, HistoryButton.Click
         Try
             Dim selectedButton = DirectCast(sender, Button)
             Select Case selectedButton.Name
@@ -28,6 +35,8 @@
                     MainTabControl.SelectedTab = CategorieTabPage
                 Case "QRcodeButton"
                     MainTabControl.SelectedTab = QRcodeTabPage
+                Case "DiscountsButton"
+                    MainTabControl.SelectedTab = DiscountsTabPage
                 Case "StatisticsButton"
                     MainTabControl.SelectedTab = StatisticsTabPage
                 Case "HistoryButton"
@@ -145,7 +154,7 @@
     End Sub
 
     '! when click any cell in the data grid view well get it valu and show it in the text boxes
-    Private Sub ShowAllProducteDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ShowAllProducteDGV.CellClick
+    Public Sub ShowAllProducteDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ShowAllProducteDGV.CellClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = ShowAllProducteDGV.Rows(e.RowIndex)
             txtProducName.Text = row.Cells("product_name").Value.ToString()
@@ -156,8 +165,159 @@
             cbCategorySelector.SelectedValue = categoryId
         End If
     End Sub
+
     'TODO:===========================Product Tab End=====================================
 #End Region
 
+    'todo:==========================Categories Tab=======================================
+#Region "Categories"
+
+    Dim Category As Category
+    Private Sub AddNewCategoryBtn_Click(sender As Object, e As EventArgs) Handles AddNewCategoryBtn.Click
+        Category.CategoryName = txtCategoryName.Text
+        InsertCategory(Category)
+        fetchAllCategories(categoriesDGV)
+    End Sub
+
+    Private Sub fetchAllCategoriesBtn_Click(sender As Object, e As EventArgs) Handles fetchAllCategoriesBtn.Click
+        fetchAllCategories(categoriesDGV)
+    End Sub
+
+    Private Sub UpdateCategoryBtn_Click(sender As Object, e As EventArgs) Handles UpdateCategoryBtn.Click
+        Category.CategoryName = txtCategoryName.Text
+        updateCategory(Category, categoriesDGV)
+        txtCategoryName.Clear()
+        fetchAllCategories(categoriesDGV)
+    End Sub
+
+    Private Sub categoriesDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles categoriesDGV.CellClick
+        If e.RowIndex >= 0 Then ' make sure the clicked cell is not a header cell
+            ' get the selected row
+            Dim row As DataGridViewRow = categoriesDGV.Rows(e.RowIndex)
+            ' set the values of the text boxes based on the selected row
+            txtCategoryName.Text = row.Cells("category_name").Value.ToString()
+        End If
+    End Sub
+
+    Private Sub DeleteCategoryBtn_Click(sender As Object, e As EventArgs) Handles DeleteCategoryBtn.Click
+        Dim selectedRow As DataGridViewRow = categoriesDGV.CurrentRow
+        If selectedRow IsNot Nothing Then
+            Dim CategoryID As Integer = CInt(selectedRow.Cells("category_id").Value)
+            deleteCategory(CategoryID)
+            txtCategoryName.Clear()
+            fetchAllCategories(categoriesDGV)
+        End If
+    End Sub
+
+
+
+
+
+
+
+
+    'todo:==========================Categories Tab end=======================================
+#End Region
+
+    'todo:==========================QR Code Tab==========================================
+#Region "QR Code"
+
+
+    Private Sub newQRcodeButton_Click(sender As Object, e As EventArgs) Handles newQRcodeButton.Click
+        Dim ProductId As Integer = CInt(QRcodeComboBox.SelectedValue)
+        Dim CreateQRcodeInfo As Product
+        CreateQRcodeInfo.product_name = pronameTextBox.Text
+        CreateQRcodeInfo.product_price = Val(propriTextBox.Text)
+        CreateQRcodeInfo.product_production_Date = propdTextBox.Text
+        CreateQRcodeInfo.product_expiry_Date = proedTextBox.Text
+        CreateQRcodeInfo.selectedCategoryID = Val(procTextBox.Text)
+        Dim QRcodeName As String = pronameTextBox.Text
+        qrcodeinsert(CreateQRcodeInfo, ProductId, QRcodeName)
+        LoadQrCodes(QRcodeDataGridView)
+    End Sub
+
+    Private Sub ShowAllQRcodeButton_Click(sender As Object, e As EventArgs) Handles ShowAllQRcodeButton.Click
+        LoadQrCodes(QRcodeDataGridView)
+        QRCodecomboBoxItem(QRcodeComboBox)
+    End Sub
+
+
+    Private Sub QRcodeDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles QRcodeDataGridView.CellClick
+        If e.RowIndex >= 0 Then
+            Dim qrCodeId As Integer = CInt(QRcodeDataGridView.Rows(e.RowIndex).Cells("qrCodeId").Value)
+            Dim productId As Integer = CInt(QRcodeDataGridView.Rows(e.RowIndex).Cells("productId").Value)
+            Dim createdAt As DateTime = QRcodeDataGridView.Rows(e.RowIndex).Cells("createdAt").Value
+            Dim qrCodeValue As Byte() = DirectCast(QRcodeDataGridView.Rows(e.RowIndex).Cells("qrCodeValue").Value, Byte())
+            'prossec the data
+            Dim qrCodeData As Byte() = qrCodeValue
+            Dim ms As New MemoryStream(qrCodeData)
+            Dim qrCodeImage As New Bitmap(ms)
+            QRcodePictureBox.Image = qrCodeImage
+        End If
+    End Sub
+
+    Private copiesPrinted As Integer = 0
+    Private Sub QRCodePrintDocument_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles QRCodePrintDocument.PrintPage
+        Dim x As Integer = e.MarginBounds.Left
+        Dim y As Integer = e.MarginBounds.Top
+        Dim bmp As New Bitmap(QRcodePictureBox.Image)
+        e.Graphics.DrawImage(bmp, x, y)
+        Dim qrCodeI As Integer = CInt(QRcodeDataGridView.CurrentRow.Cells("qrCodeId").Value)
+        copiesPrinted += 1
+        If copiesPrinted = QRCodePrintDocument.PrinterSettings.Copies Then
+            If InsertPrintedQRCodeRecord(qrCodeI, copiesPrinted) Then
+                MessageBox.Show($"Printed {copiesPrinted} copies of QR Code successfully. Total copies printed: {copiesPrinted}.")
+            Else
+                MessageBox.Show("Failed to record printed QR Code.")
+            End If
+            copiesPrinted = 0
+        End If
+    End Sub
+
+    Private Sub printQRCodeButton_Click(sender As Object, e As EventArgs) Handles printQRCodeButton.Click
+        If Not QRcodePictureBox.Image Is Nothing Then
+            Dim printDialog As New PrintDialog()
+            If printDialog.ShowDialog() = DialogResult.OK Then
+                Dim printDocument As PrintDocument = QRCodePrintDocument
+                AddHandler printDocument.PrintPage, AddressOf QRCodePrintDocument_PrintPage
+                printDocument.PrinterSettings = printDialog.PrinterSettings
+                printDocument.Print()
+            End If
+        End If
+    End Sub
+
+    Private Sub deleteQRCodeButton_Click(sender As Object, e As EventArgs) Handles deleteQRCodeButton.Click
+        Dim qrCodeId As Integer = CInt(QRcodeDataGridView.CurrentRow.Cells("qrCodeId").Value)
+        DeleteQRCodeRecord(qrCodeId)
+        LoadQrCodes(QRcodeDataGridView)
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Private Sub QRcodeComboBox_Click(sender As Object, e As EventArgs) Handles QRcodeComboBox.DropDownClosed
+        getprodinfo(QRcodeComboBox, pronameTextBox, propriTextBox, propdTextBox, proedTextBox, procTextBox)
+    End Sub
+    'todo:==========================QR Code Tab end======================================
+#End Region
 
 End Class

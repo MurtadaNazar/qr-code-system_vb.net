@@ -6,9 +6,7 @@
         Public product_production_Date As Date
         Public product_expiry_Date As Date
         Public selectedCategoryID As Integer
-
     End Structure
-
 
     '!: qr code data type
     Structure QR_Code
@@ -29,4 +27,5 @@
         Public column_Name As String
         Public values As String
     End Structure
+
 End Module

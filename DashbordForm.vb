@@ -1,9 +1,5 @@
-﻿Imports System.Data.SqlClient
-Imports System.Drawing.Printing
+﻿Imports System.Drawing.Printing
 Imports System.IO
-Imports qr_code_system.DataTypes
-Imports ZXing
-Imports ZXing.QrCode
 
 Public Class DashbordForm
     'TODO:===========================DashBordForm========================================
@@ -21,7 +17,7 @@ Public Class DashbordForm
         End Try
     End Sub
     '!: Navgition throm the tabs
-    Private Sub HomeButton_Click(sender As Object, e As EventArgs) Handles HomeButton.Click, SearchButton.Click, ProductButton.Click, CategoriesButton.Click, QRcodeButton.Click, DiscountsButton.Click, StatisticsButton.Click, HistoryButton.Click
+    Private Sub HomeButton_Click(sender As Object, e As EventArgs) Handles HomeButton.Click, SearchButton.Click, ProductButton.Click, CategoriesButton.Click, QRcodeButton.Click, DiscountsButton.Click, StatisticsButton.Click
         Try
             Dim selectedButton = DirectCast(sender, Button)
             Select Case selectedButton.Name
@@ -39,8 +35,6 @@ Public Class DashbordForm
                     MainTabControl.SelectedTab = DiscountsTabPage
                 Case "StatisticsButton"
                     MainTabControl.SelectedTab = StatisticsTabPage
-                Case "HistoryButton"
-                    MainTabControl.SelectedTab = HistoryTabPage
             End Select
         Catch ex As Exception
         End Try
@@ -222,7 +216,7 @@ Public Class DashbordForm
     'todo:==========================QR Code Tab==========================================
 #Region "QR Code"
 
-
+    'TODO: create a new qr code
     Private Sub newQRcodeButton_Click(sender As Object, e As EventArgs) Handles newQRcodeButton.Click
         Dim ProductId As Integer = CInt(QRcodeComboBox.SelectedValue)
         Dim CreateQRcodeInfo As Product
@@ -236,12 +230,20 @@ Public Class DashbordForm
         LoadQrCodes(QRcodeDataGridView)
     End Sub
 
+    'TODO: show all qr code in the data base
     Private Sub ShowAllQRcodeButton_Click(sender As Object, e As EventArgs) Handles ShowAllQRcodeButton.Click
         LoadQrCodes(QRcodeDataGridView)
         QRCodecomboBoxItem(QRcodeComboBox)
     End Sub
 
+    'TODO: delete qr code
+    Private Sub deleteQRCodeButton_Click(sender As Object, e As EventArgs) Handles deleteQRCodeButton.Click
+        Dim qrCodeId As Integer = CInt(QRcodeDataGridView.CurrentRow.Cells("qrCodeId").Value)
+        DeleteQRCodeRecord(qrCodeId)
+        LoadQrCodes(QRcodeDataGridView)
+    End Sub
 
+    'TODO: get the specific qr code info from the data grid view
     Private Sub QRcodeDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles QRcodeDataGridView.CellClick
         If e.RowIndex >= 0 Then
             Dim qrCodeId As Integer = CInt(QRcodeDataGridView.Rows(e.RowIndex).Cells("qrCodeId").Value)
@@ -256,6 +258,13 @@ Public Class DashbordForm
         End If
     End Sub
 
+    'TODO: get the product info form database to create the qr code
+    Private Sub QRcodeComboBox_Click(sender As Object, e As EventArgs) Handles QRcodeComboBox.DropDownClosed
+        getprodinfo(QRcodeComboBox, pronameTextBox, propriTextBox, propdTextBox, proedTextBox, procTextBox)
+    End Sub
+
+    'TODO: print the qr code
+#Region "Print QRcode"
     Private copiesPrinted As Integer = 0
     Private Sub QRCodePrintDocument_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles QRCodePrintDocument.PrintPage
         Dim x As Integer = e.MarginBounds.Left
@@ -274,6 +283,7 @@ Public Class DashbordForm
         End If
     End Sub
 
+    'TODO: print qr code button
     Private Sub printQRCodeButton_Click(sender As Object, e As EventArgs) Handles printQRCodeButton.Click
         If Not QRcodePictureBox.Image Is Nothing Then
             Dim printDialog As New PrintDialog()
@@ -285,39 +295,65 @@ Public Class DashbordForm
             End If
         End If
     End Sub
+#End Region
 
-    Private Sub deleteQRCodeButton_Click(sender As Object, e As EventArgs) Handles deleteQRCodeButton.Click
-        Dim qrCodeId As Integer = CInt(QRcodeDataGridView.CurrentRow.Cells("qrCodeId").Value)
-        DeleteQRCodeRecord(qrCodeId)
-        LoadQrCodes(QRcodeDataGridView)
-    End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Private Sub QRcodeComboBox_Click(sender As Object, e As EventArgs) Handles QRcodeComboBox.DropDownClosed
-        getprodinfo(QRcodeComboBox, pronameTextBox, propriTextBox, propdTextBox, proedTextBox, procTextBox)
-    End Sub
     'todo:==========================QR Code Tab end======================================
+#End Region
+
+    'todo:==========================Discount Tab==========================================
+#Region "Discount"
+
+    'TODO:show all Discount Button
+    Private Sub ShowAllDiscountButton_Click(sender As Object, e As EventArgs) Handles ShowAllDiscountButton.Click
+        DiscountcomboBoxItem(productDiscountComboBox)
+        GetAllDiscounts(DiscountsDataGridView)
+    End Sub
+
+    'TODO:Add Discount Button
+    Private Sub AddDiscountButton_Click(sender As Object, e As EventArgs) Handles AddDiscountButton.Click
+        Dim Pid As Integer = Convert.ToInt32(productDiscountComboBox.SelectedValue)
+        InsertDiscount(Pid,
+            discountExtentTXT,
+            priceBeforeTXT,
+            priceAfterTXT,
+            durationTXT)
+    End Sub
+
+    'TODO:Delete Discount Button
+    Private Sub DeleteDiscountButton_Click(sender As Object, e As EventArgs) Handles DeleteDiscountButton.Click
+        Dim DiscountId As Integer = CInt(DiscountsDataGridView.CurrentRow.Cells("DiscountID").Value)
+        DeleteDiscount(DiscountId)
+        GetAllDiscounts(DiscountsDataGridView)
+        DiscountcomboBoxItem(productDiscountComboBox)
+    End Sub
+
+    'TODO:fetch ProductDiscount ComboBox item from database
+    Private Sub ProductDiscountComboBox_DropDownClosed(sender As Object, e As EventArgs) Handles productDiscountComboBox.DropDownClosed
+        Dim Pid As Integer = Convert.ToInt32(productDiscountComboBox.SelectedValue)
+        GetPrice(priceBeforeTXT, Pid)
+    End Sub
+
+    'todo:==========================Discount Tab end==========================================
+#End Region
+
+    'todo:==========================Statistics Tab==========================================
+#Region "Statistics"
+    'TODO: Get All Statistics Button
+    Private Sub GetAllStatisticsButton_Click(sender As Object, e As EventArgs) Handles GetAllStatisticsButton.Click
+        GetDatabaseStatistics(StatisticDataGridView)
+    End Sub
+
+    'TODO: Export ToExcel Button
+    Private Sub ExportToExcelButton_Click(sender As Object, e As EventArgs) Handles ExportToExcelButton.Click
+        ExportToExcel(StatisticDataGridView)
+    End Sub
+
+    'TODO: Export To PDF Button
+    Private Sub ExportToPDFButton_Click(sender As Object, e As EventArgs) Handles ExportToPDFButton.Click
+        ExportToPDF(StatisticDataGridView)
+    End Sub
+
+    'todo:==========================Statistics Tab end==========================================
 #End Region
 
 End Class

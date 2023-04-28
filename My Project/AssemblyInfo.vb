@@ -1,4 +1,4 @@
-﻿Imports System
+﻿Imports System.Resources
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("qr-code-system")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("this QR code generator Windows form application was built by murtada nazar")>
+<Assembly: AssemblyCompany("Murtada_Nazar")>
 <Assembly: AssemblyProduct("qr-code-system")>
-<Assembly: AssemblyCopyright("Copyright ©  2023")>
+<Assembly: AssemblyCopyright("Copyright ©2023 MurtadaNazar")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -33,3 +33,4 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.0.0.0")>
 <Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: NeutralResourcesLanguage("en")>
